@@ -47,6 +47,15 @@ class Post
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts')]
     private Collection $tags;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $title_id = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $summary_id = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $content_id = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -180,6 +189,42 @@ class Post
     public function removeTag(Tag $tag): static
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getTitleId(): ?string
+    {
+        return $this->title_id;
+    }
+
+    public function setTitleId(?string $title_id): static
+    {
+        $this->title_id = $title_id;
+
+        return $this;
+    }
+
+    public function getSummaryId(): ?string
+    {
+        return $this->summary_id;
+    }
+
+    public function setSummaryId(?string $summary_id): static
+    {
+        $this->summary_id = $summary_id;
+
+        return $this;
+    }
+
+    public function getContentId(): ?string
+    {
+        return $this->content_id;
+    }
+
+    public function setContentId(?string $content_id): static
+    {
+        $this->content_id = $content_id;
 
         return $this;
     }
