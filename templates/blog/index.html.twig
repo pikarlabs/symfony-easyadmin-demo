@@ -22,7 +22,7 @@
                     </a>
                   </td>
                   <td>
-                    {{ item.summary }}
+                    {{ item.summary|slice(0, 50) }}...
                   </td>
                   <td>
                     {{ item.author.fullName }}
