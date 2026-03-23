@@ -20,13 +20,9 @@ final class BlogController extends AbstractController
         ]);
     }
 
-    #[Route('/blog/{slug}', name: 'blog_show')]
-    public function show(EntityManagerInterface $entityManager, string $slug): Response
+    #[Route('/blog/{slug:post}', name: 'blog_show')]
+    public function show(Post $post): Response
     {
-        $post = $entityManager->getRepository(Post::class)->findOneBy([
-            'slug' => $slug,
-        ]);
-
         return $this->render('blog/show.html.twig', [
             'entry' => $post,
         ]);
