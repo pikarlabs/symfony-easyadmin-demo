@@ -17,7 +17,8 @@ Installation
 Run this command with [Composer][4]:
 
 ```bash
-$ composer create-project easyCorp/easyadmin-demo my_project
+#$ composer create-project easyCorp/easyadmin-demo my_project
+$ composer install
 ```
 
 Usage
