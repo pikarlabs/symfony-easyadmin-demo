@@ -34,9 +34,9 @@ class PostCrudController extends AbstractCrudController
 
             // Second Tab
             FormField::addTab('Content (ID)'),
-            TextField::new('title_id'),
-            TextareaField::new('summary_id'),
-            TextEditorField::new('content_id'),
+            TextField::new('titleId'),
+            TextareaField::new('summaryId'),
+            TextEditorField::new('contentId'),
 
             // Third Tab
             FormField::addTab('Other'),

@@ -48,13 +48,13 @@ class Post
     private Collection $tags;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $title_id = null;
+    private ?string $titleId = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $summary_id = null;
+    private ?string $summaryId = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $content_id = null;
+    private ?string $contentId = null;
 
     public function __construct()
     {
@@ -195,36 +195,36 @@ class Post
 
     public function getTitleId(): ?string
     {
-        return $this->title_id;
+        return $this->titleId;
     }
 
-    public function setTitleId(?string $title_id): static
+    public function setTitleId(?string $titleId): static
     {
-        $this->title_id = $title_id;
+        $this->titleId = $titleId;
 
         return $this;
     }
 
     public function getSummaryId(): ?string
     {
-        return $this->summary_id;
+        return $this->summaryId;
     }
 
-    public function setSummaryId(?string $summary_id): static
+    public function setSummaryId(?string $summaryId): static
     {
-        $this->summary_id = $summary_id;
+        $this->$summaryId = $summaryId;
 
         return $this;
     }
 
     public function getContentId(): ?string
     {
-        return $this->content_id;
+        return $this->contentId;
     }
 
-    public function setContentId(?string $content_id): static
+    public function setContentId(?string $contentId): static
     {
-        $this->content_id = $content_id;
+        $this->contentId = $contentId;
 
         return $this;
     }
