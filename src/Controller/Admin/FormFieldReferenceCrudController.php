@@ -7,7 +7,6 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Form\Type\CollectionComplexType;
 use App\Form\Type\CollectionSimpleType;
-use App\Form\Type\TagsInputType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -46,6 +45,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TimezoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
+/**
+ * @extends AbstractCrudController<User>
+ */
 class FormFieldReferenceCrudController extends AbstractCrudController
 {
     public function __construct(private EntityManagerInterface $entityManager)
@@ -127,7 +129,7 @@ class FormFieldReferenceCrudController extends AbstractCrudController
         ];
     }
 
-    public function createEntity(string $entityFqcn)
+    public function createEntity(string $entityFqcn): object
     {
         $janeDoe = $this->entityManager->getRepository(User::class)->findOneBy(['username' => 'jane_admin']);
         $johnDoe = $this->entityManager->getRepository(User::class)->findOneBy(['username' => 'john_user']);

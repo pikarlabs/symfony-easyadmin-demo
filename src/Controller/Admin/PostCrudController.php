@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
+use App\Entity\Tag;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -14,6 +16,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * @extends AbstractCrudController<User>
+ */
 class PostCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
