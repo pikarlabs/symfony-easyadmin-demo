@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{# @var entry entity \App\Entity\Post #}
+{# @var entryTag entity \App\Entity\Tags #}
+
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
+<div class="container mx-auto my-5">
     <div class="example-wrapper prose">
         <h1 class="text-2xl">Blog Posts ✅</h1>
         
@@ -14,36 +18,32 @@
               <th>Tags</th>
               <th>Published</th>
             </tr>
-            {% for item in entries %}
+            {% for entry in entries %}
                 <tr>
                   <td>
-                    <a href="{{ path('blog_show', { slug: item.slug }) }}">
-                      {{ item.title }}
+                    <a href="{{ path('blog_show', { slug: entry.slug }) }}">
+                      {{ entry.title }}
                     </a>
                   </td>
                   <td>
-                    {{ item.summary|slice(0, 50) }}...
+                    {{ entry.summary|slice(0, 50) }}...
                   </td>
                   <td>
-                    {{ item.author.fullName }}
+                    {{ entry.author.fullName }}
                   </td>
                   <td>
-                    {% for itemChild in item.tags %}
+                    {% for entryTag in entry.tags %}
                       <div class="badge badge-soft badge-primary">
-                        {{ itemChild.name }}
+                        {{ entryTag.name }}
                       </div>
                     {% endfor %}
                   </td>
                   <td>
-                    {{ item.publishedAt|date }}
+                    {{ entry.publishedAt|date }}
                   </td>
                 </tr>
             {% endfor %}
         </table>
     </div>
-
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+</div>
 {% endblock %}
