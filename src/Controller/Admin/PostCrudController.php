@@ -47,9 +47,13 @@ class PostCrudController extends AbstractCrudController
             FormField::addTab('Other'),
             DateTimeField::new('publishedAt'),
             AssociationField::new('author')
-                ->autocomplete(),
+                ->autocomplete(
+                    callback: fn (User $user) => $user->getFullName()
+                ),
             AssociationField::new('tags')
-                ->autocomplete(),
+                ->autocomplete(
+                    callback: fn (Tag $tag) => $tag->getName()
+                ),
         ];
     }
 }

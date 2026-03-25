@@ -39,13 +39,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkTo(User::class, 'Users', 'fa fa-users')->setAction(Action::INDEX);
-        yield MenuItem::linkTo(Post::class, 'Blog Posts', 'fa fa-file-text-o')->setAction(Action::INDEX);
-        yield MenuItem::linkTo(Comment::class, 'Comments', 'far fa-comments')->setAction(Action::INDEX);
-        yield MenuItem::linkTo(Tag::class, 'Tags', 'fas fa-tags')->setAction(Action::INDEX);
+        yield MenuItem::linkTo(UserCrudController::class, 'Users', 'fa fa-users')->setAction(Action::INDEX);
+        yield MenuItem::linkTo(PostCrudController::class, 'Blog Posts', 'fa fa-file-text-o')->setAction(Action::INDEX);
+        yield MenuItem::linkTo(CommentCrudController::class, 'Comments', 'far fa-comments')->setAction(Action::INDEX);
+        yield MenuItem::linkTo(TagCrudController::class, 'Tags', 'fas fa-tags')->setAction(Action::INDEX);
 
         yield MenuItem::section('Resources');
-        yield MenuItem::linkTo(FormFieldReference::class, 'Form Field Reference', 'fa-solid fa-table-cells')->setAction(Action::NEW);
+        yield MenuItem::linkTo(FormFieldReferenceCrudController::class, 'Form Field Reference', 'fa-solid fa-table-cells')->setAction(Action::NEW);
         yield MenuItem::linkToRoute('Fixtures data', 'fa-solid fa-database', 'admin_regenerate_fixtures');
 
         yield MenuItem::section('Links');
